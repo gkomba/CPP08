@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Span.hpp                                           :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 02:06:01 by gildo             #+#    #+#             */
-/*   Updated: 2025/10/14 14:09:55 by gkomba           ###   ########.fr       */
+/*   Created: 2025/10/14 14:26:33 by gkomba            #+#    #+#             */
+/*   Updated: 2025/10/14 14:47:10 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_HPP
-# define SPAN_HPP
+#ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 
 #include <iostream>
-#include <set>
+#include <string>
 #include <algorithm>
-#include <exception>
+#include <stack>
 
-class Span
+template<typename T>
+class MutantStack
 {
     private:
-        unsigned int N;
-        std::set<int> save;
+        std::stack<T> container;
     public:
-        Span(unsigned int N);
-        Span(const Span &obj);
-        Span &operator=(const Span &obj);
-        ~Span();
-        void    addNumber(int number);
-        int     shortestSpan(void);
-        int     longestSpan(void);
-        void    addNumberR(int start, int end);
+        MutantStack();
+        MutantStack(const MutantStack &obj);
+        MutantStack &operator=(const MutantStack &obj);
+        ~MutantStack();
+        T&          top(void);
+        const T&    top(void) const;
+        bool        empty(void) const;
+        void        push(const T &value);
+        void        pop(void); 
 };
 
 #endif

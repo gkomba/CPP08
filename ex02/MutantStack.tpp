@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   MutantStack.tpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 02:06:48 by gildo             #+#    #+#             */
-/*   Updated: 2025/10/14 14:19:09 by gkomba           ###   ########.fr       */
+/*   Created: 2025/10/14 14:30:52 by gkomba            #+#    #+#             */
+/*   Updated: 2025/10/14 14:31:30 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Span.hpp"
+#ifndef MUTANTSTACK_TPP
+# define MUTANTSTACK_TPP
 
-int main()
-{
-    Span sp = Span(5);
-    try {
-        
-        sp.addNumberR(3, 1);
-        std::cout << sp.shortestSpan() << std::endl;
-        std::cout << sp.longestSpan() << std::endl;
-    } catch (const std::exception &e) {
-        std::cerr << e.what() << std::endl;
-    }
-    return 0;
-}
+#include "MutantStack.hpp"
+
+#endif

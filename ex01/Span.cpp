@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gildo <gildo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 02:12:39 by gildo             #+#    #+#             */
-/*   Updated: 2025/10/14 03:16:00 by gildo            ###   ########.fr       */
+/*   Updated: 2025/10/14 14:16:37 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Span::~Span(void) {}
 
 void    Span::addNumber(int number)
 {
-    if (this->N < this->save.size())
+    if (this->save.size() >= this->N)
         throw std::runtime_error("No space left");
     this->save.insert(number);
 }
@@ -65,4 +65,28 @@ int Span::shortestSpan(void)
         }
     }
     return (span);
+}
+
+void    Span::addNumberR(int start, int end)
+{
+    int i;
+
+    if (start < end)
+    {
+        i = start;
+        while (i <= end)
+        {
+            this->addNumber(i);
+            i++;
+        }
+    }
+    else
+    {
+        i = start;
+        while (i >= end)
+        {
+            this->addNumber(i);
+            i--;
+        }
+    }
 }
