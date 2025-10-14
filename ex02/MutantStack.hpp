@@ -6,7 +6,7 @@
 /*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:26:33 by gkomba            #+#    #+#             */
-/*   Updated: 2025/10/14 14:47:10 by gkomba           ###   ########.fr       */
+/*   Updated: 2025/10/14 17:22:58 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,23 @@
 #include <algorithm>
 #include <stack>
 
-template<typename T>
-class MutantStack
+#include <stack>
+#include <deque>
+
+template <typename T, typename Container = std::deque<T> >
+class MutantStack : public std::stack<T, Container>
 {
-    private:
-        std::stack<T> container;
-    public:
-        MutantStack();
-        MutantStack(const MutantStack &obj);
-        MutantStack &operator=(const MutantStack &obj);
-        ~MutantStack();
-        T&          top(void);
-        const T&    top(void) const;
-        bool        empty(void) const;
-        void        push(const T &value);
-        void        pop(void); 
+public:
+    // Expor iteradores do container interno
+    typedef typename Container::iterator iterator;
+    typedef typename Container::const_iterator const_iterator;
+
+    iterator begin() { return this->c.begin(); }
+    iterator end() { return this->c.end(); }
+
+    const_iterator begin() const { return this->c.begin(); }
+    const_iterator end() const { return this->c.end(); }
 };
+
 
 #endif
