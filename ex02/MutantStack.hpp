@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gildo <gildo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:26:33 by gkomba            #+#    #+#             */
-/*   Updated: 2025/10/15 04:52:49 by gildo            ###   ########.fr       */
+/*   Updated: 2025/10/15 11:35:45 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <string>
 #include <algorithm>
 #include <stack>
+#include <list>
 #include <deque>
 
 template <class T,  typename Container = std::deque<T> >
@@ -25,7 +26,7 @@ class MutantStack : public std::stack<T, Container>
     public:
         typedef typename Container::iterator iterator;
         typedef typename Container::const_iterator const_iterator;
-    
+
     MutantStack();
     MutantStack(const MutantStack &obj);
     MutantStack &operator=(const MutantStack &obj);

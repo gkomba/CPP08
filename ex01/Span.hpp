@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gildo <gildo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 02:06:01 by gildo             #+#    #+#             */
-/*   Updated: 2025/10/14 10:05:51 by gildo            ###   ########.fr       */
+/*   Updated: 2025/10/14 17:04:37 by gkomba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ public:
     void addNumber(int number);
     int shortestSpan(void);
     int longestSpan(void);
-    
     template <typename Iterator>
-    void addNumberR(Iterator start, Iterator end)
+    void addNumberBulk(Iterator start, Iterator end)
     {
-        for (Iterator i = start; i != end; ++i)
-            this->addNumber(*i);
+        if (std::distance(start, end) + this->save.size() > this->N)
+            throw std::runtime_error("Limit execeded while inserting sevaral elements");
+        this->save.insert(start, end);
     }
 };
 
