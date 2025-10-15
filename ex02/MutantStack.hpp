@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gkomba <gkomba@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gildo <gildo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:26:33 by gkomba            #+#    #+#             */
-/*   Updated: 2025/10/14 17:22:58 by gkomba           ###   ########.fr       */
+/*   Updated: 2025/10/15 02:26:18 by gildo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,28 @@
 #include <string>
 #include <algorithm>
 #include <stack>
-
-#include <stack>
 #include <deque>
 
-template <typename T, typename Container = std::deque<T> >
+template <class T,  typename Container = std::deque<T> >
 class MutantStack : public std::stack<T, Container>
 {
-public:
-    // Expor iteradores do container interno
+    public:
+    // typedef std::stack<T> stack;
+    // typedef typename stack::container_type container;
     typedef typename Container::iterator iterator;
     typedef typename Container::const_iterator const_iterator;
-
-    iterator begin() { return this->c.begin(); }
-    iterator end() { return this->c.end(); }
-
-    const_iterator begin() const { return this->c.begin(); }
-    const_iterator end() const { return this->c.end(); }
+    
+    MutantStack();
+    MutantStack(const MutantStack &obj);
+    MutantStack &operator=(const MutantStack &obj);
+    ~MutantStack();
+    
+    iterator begin();
+    iterator end();
+    const_iterator begin() const;
+    const_iterator end() const;
 };
+#include "MutantStack.tpp"
 
 
 #endif
